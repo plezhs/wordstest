@@ -12,7 +12,7 @@ def resource_path(path):
 condition = True
 words=[]
 answer = []
-que = {'0','0'}
+num=0
 
 with open(resource_path('resource\\words.txt'),'r', encoding='UTF-8') as a:
     word = a.read().splitlines()
@@ -21,11 +21,13 @@ with open(resource_path('resource\\words.txt'),'r', encoding='UTF-8') as a:
 with open(resource_path('resource\\wordsmean.txt'),'r', encoding='UTF-8') as b:
     mean = b.read().splitlines()
     for j in mean:
-        answer.append(i)
+        answer.append(j)
 question = dict(zip(words,answer))
-for i in range(1,len(words)+1):
-    uanswer = input()
-    if uanswer is question[words[i]]:
+for l in range(1,len(words)+1):
+    uanswer = input(words[num]+'\n')
+    ranswer = str(question[words[num]])
+    if uanswer == ranswer:
         print('O')
     else:
         print('X')
+    num+=1
