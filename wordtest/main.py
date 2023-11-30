@@ -31,4 +31,5 @@ for l in range(1,len(words)+1):
         print('O')
     else:
         print('X')
+        print(ranswer)
     num+=1
