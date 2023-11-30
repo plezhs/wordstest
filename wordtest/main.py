@@ -23,6 +23,7 @@ with open(resource_path('resource\\wordsmean.txt'),'r', encoding='UTF-8') as b:
     for j in mean:
         answer.append(j)
 question = dict(zip(words,answer))
+random.shuffle(words)
 for l in range(1,len(words)+1):
     uanswer = input(words[num]+'\n')
     ranswer = str(question[words[num]])
