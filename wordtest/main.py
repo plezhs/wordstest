@@ -1,3 +1,4 @@
+import json
 import random
 import os
 import sys
@@ -23,13 +24,20 @@ with open(resource_path('resource\\wordsmean.txt'),'r', encoding='UTF-8') as b:
     for j in mean:
         answer.append(j)
 question = dict(zip(words,answer))
-random.shuffle(words)
-for l in range(1,len(words)+1):
-    uanswer = input(words[num]+'\n')
-    ranswer = str(question[words[num]])
-    if uanswer == ranswer:
-        print('O')
-    else:
-        print('X')
-        print(ranswer)
-    num+=1
+unitnum = 1
+with open(resource_path(f'unit\\{unitnum}.json'),'w',encoding='UTF-8') as jsonfile:
+    json.dump(question,jsonfile,indent=2,ensure_ascii=False)
+with open(resource_path(f'unit\\{unitnum}.json'),'r',encoding='UTF-8') as jsondict:
+    testdict = json.load(jsondict)
+a = list(testdict.keys())
+print (a)
+# random.shuffle(words)
+# for l in range(1,len(words)+1):
+#     uanswer = input(words[num]+'\n')
+#     ranswer = str(question[words[num]])
+#     if uanswer == ranswer:
+#         print('O')
+#     else:
+#         print('X')
+#         print(ranswer)
+#     num+=1
