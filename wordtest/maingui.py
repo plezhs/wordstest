@@ -22,10 +22,10 @@ class Main(QWidget):
         self.btnstart.clicked.connect(self.selectwindow)
 
         self.btnnew = QPushButton('새로 만들기',self)
-        self.btnstart.clicked.connect(self.makewindow)
+        self.btnnew.clicked.connect(self.makewindow)
 
         self.btnedit = QPushButton('수정',self)
-        self.btnstart.clicked.connect(self.editwindow)
+        self.btnedit.clicked.connect(self.editwindow)
 
         vlayout = QVBoxLayout()
         vlayout.addWidget(self.btnstart)
@@ -54,7 +54,7 @@ class Main(QWidget):
         x = self.second.geometry()
         self.setGeometry(x)
         self.show()
-        
+
     def makewindow(self):
         y = self.geometry()
         self.hide()
