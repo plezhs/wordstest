@@ -15,7 +15,9 @@ class MakeUnit(QDialog, QWidget):
         vlayout.addWidget(self.btnmakemain)
 
         hlayout = QHBoxLayout()
+        hlayout.addStretch(1)
         hlayout.addLayout(vlayout)
+        hlayout.addStretch(1)
 
         self.setLayout(hlayout)
 

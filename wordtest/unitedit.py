@@ -15,7 +15,9 @@ class EditUnit(QDialog, QWidget):
         vlayout.addWidget(self.btneditmain)
 
         hlayout = QHBoxLayout()
+        hlayout.addStretch(1)
         hlayout.addLayout(vlayout)
+        hlayout.addStretch(1)
 
         self.setLayout(hlayout)
 
