@@ -2,17 +2,17 @@ import sys
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 
-class SelectUnit(QDialog, QWidget):
+class EditUnit(QDialog, QWidget):
     def __init__(self):
         super().__init__()
         self.initUI()
     def initUI(self):
         
-        self.btnselectmain = QPushButton('메인화면으로',self)
-        self.btnselectmain.clicked.connect(self.tomain)
+        self.btneditmain = QPushButton('메인화면으로',self)
+        self.btneditmain.clicked.connect(self.tomain)
 
         vlayout = QVBoxLayout()
-        vlayout.addWidget(self.btnselectmain)
+        vlayout.addWidget(self.btneditmain)
 
         hlayout = QHBoxLayout()
         hlayout.addLayout(vlayout)
@@ -29,5 +29,5 @@ class SelectUnit(QDialog, QWidget):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    ex = SelectUnit()
+    ex = EditUnit()
     sys.exit(app.exec_())

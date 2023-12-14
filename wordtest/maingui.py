@@ -2,6 +2,8 @@ import sys
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from unitselect import SelectUnit
+from unitnew import MakeUnit
+from unitedit import EditUnit
 
 class Main(QWidget):
     
@@ -19,10 +21,16 @@ class Main(QWidget):
         self.btnstart = QPushButton('시작',self)
         self.btnstart.clicked.connect(self.selectwindow)
 
+        self.btnnew = QPushButton('새로 만들기',self)
+        self.btnstart.clicked.connect(self.makewindow)
+
         self.btnedit = QPushButton('수정',self)
+        self.btnstart.clicked.connect(self.editwindow)
 
         vlayout = QVBoxLayout()
         vlayout.addWidget(self.btnstart)
+        vlayout.addWidget(self.btnnew)
+        vlayout.addWidget(self.btnedit)
         vlayout.addWidget(self.btnexit)
 
         hlayout = QHBoxLayout()
@@ -44,6 +52,26 @@ class Main(QWidget):
         self.second.setGeometry(y)
         self.second.exec()
         x = self.second.geometry()
+        self.setGeometry(x)
+        self.show()
+        
+    def makewindow(self):
+        y = self.geometry()
+        self.hide()
+        self.third = MakeUnit()
+        self.third.setGeometry(y)
+        self.third.exec()
+        x = self.third.geometry()
+        self.setGeometry(x)
+        self.show()
+
+    def editwindow(self):
+        y = self.geometry()
+        self.hide()
+        self.fourth = EditUnit()
+        self.fourth.setGeometry(y)
+        self.fourth.exec()
+        x = self.fourth.geometry()
         self.setGeometry(x)
         self.show()
 
