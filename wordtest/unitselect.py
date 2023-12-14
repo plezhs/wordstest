@@ -10,20 +10,17 @@ def resource_path(path):
         base_path = os.path.abspath(".")
     return os.path.join(base_path,path)
 
-unitlist = []
-
 class SelectUnit(QDialog, QWidget):
     def __init__(self):
         super().__init__()
         self.initUI()
-        imsi = os.listdir(resource_path('.\\unit'))
-        for i in imsi:
-            unitlist.append(i.split('.json'))
 
     def initUI(self):
+
+        self.unitlist = self.getlist()
         
         self.unitlistbox = QComboBox(self)
-        self.unitlistbox.addItems(unitlist)
+        self.unitlistbox.addItems(self.unitlist)
 
         self.btnmain = QPushButton('메인화면으로',self)
         self.btnmain.clicked.connect(self.tomain)
@@ -46,6 +43,15 @@ class SelectUnit(QDialog, QWidget):
 
     def tomain(self):
         self.close()
+
+    def getlist(self):
+        a= []
+        listf = os.listdir(resource_path('.\\unit'))
+        for j in listf:
+            i = j.split('.json')[0]
+            a.append(i)
+        return a
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
