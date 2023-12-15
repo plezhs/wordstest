@@ -2,6 +2,7 @@ import sys
 import os
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
+from teststart import MakeUnit
 
 def resource_path(path):
     try:
@@ -22,11 +23,15 @@ class SelectUnit(QDialog, QWidget):
         self.unitlistbox = QComboBox(self)
         self.unitlistbox.addItems(self.unitlist)
 
+        self.startbtn = QPushButton('시작',self)
+        self.startbtn.clicked.connect(self.totestwindow)
+
         self.btnmain = QPushButton('메인화면으로',self)
         self.btnmain.clicked.connect(self.tomain)
 
         vlayout = QVBoxLayout()
         vlayout.addWidget(self.unitlistbox)
+        vlayout.addWidget(self.startbtn)
         vlayout.addWidget(self.btnmain)
 
         hlayout = QHBoxLayout()
@@ -43,6 +48,20 @@ class SelectUnit(QDialog, QWidget):
 
     def tomain(self):
         self.close()
+    
+    def totestwindow(self):
+        y = self.geometry()
+        self.hide()
+        self.fourth = MakeUnit()
+        self.fourth.setGeometry(y)
+        self.fourth.exec()
+        x = self.fourth.geometry()
+        self.setGeometry(x)
+        self.show()
+
+    def start(self):
+        a = self.unitlistbox.currentText()
+        return a
 
     def getlist(self):
         a= []

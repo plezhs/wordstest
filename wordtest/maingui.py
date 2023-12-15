@@ -5,7 +5,7 @@ from unitselect import SelectUnit
 from unitnew import MakeUnit
 from unitedit import EditUnit
 
-class Main(QWidget):
+class Main(QDialog, QWidget):
     
     def __init__(self):
         super().__init__()
