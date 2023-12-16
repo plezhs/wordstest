@@ -41,8 +41,10 @@ class MakeUnit(QDialog, QWidget):
         self.inputline = QLineEdit(self)
         self.inputline.returnPressed.connect(self.next)
 
-        # self.btnmakemain = QPushButton('뒤로',self)
-        # self.btnmakemain.clicked.connect(self.tomain)
+        self.btnmakemain = QPushButton('뒤로',self)
+        self.btnmakemain.clicked.connect(self.tomain)
+        self.btnmakemain.setAutoDefault(False)
+        self.btnmakemain.setDefault(False)
 
         alayout = QHBoxLayout()
 
@@ -50,7 +52,7 @@ class MakeUnit(QDialog, QWidget):
         vlayout.addStretch(1)
         vlayout.addWidget(self.word)
         vlayout.addWidget(self.inputline)
-        # vlayout.addWidget(self.btnmakemain)
+        vlayout.addWidget(self.btnmakemain)
         vlayout.addStretch(1)
 
         hlayout = QHBoxLayout()
